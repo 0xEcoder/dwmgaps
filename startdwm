@@ -1,0 +1,12 @@
+#!/bin/sh
+#// TopBar info
+while true; do
+    xsetroot -name "$(wpctl get-volume @DEFAULT_AUDIO_SINK@)% | $(cat /sys/class/power_supply/BAT0/capacity)% | $(date +"%R")"
+done &
+
+#// start these apps
+nitrogen --restore &
+picom &
+#// start dwm
+dwm
+
